@@ -1,0 +1,45 @@
+import './App.css'
+import { ThemeProvider, Box, CssBaseline } from '@mui/material'
+import theme from './config/theme'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import SideNav from './components/SideNav'
+import AppHeader from './components/AppHeader'
+import { ProSidebarProvider } from 'react-pro-sidebar'
+
+function App() {
+
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <ProSidebarProvider>
+            <CssBaseline />
+            <AppHeader />
+            <Box sx={styles.container}>
+              <SideNav />
+              <Box component={'main'} sx={styles.main}>
+              </Box>
+            </Box>
+            </ProSidebarProvider>
+          </ThemeProvider>
+
+    </>
+  )
+}
+/** @type {import("@mui/material").SxProps}*/
+const styles = {  
+  container:{
+    display:"flex",
+    bgcolor: 'neutral.light',
+    height: "calc(100% - 64px)"
+    },
+  main:{
+    p:1,
+    width:'100%',
+    height:'100%'
+  }
+}
+
+export default App
