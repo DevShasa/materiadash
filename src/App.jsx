@@ -8,6 +8,8 @@ import '@fontsource/roboto/700.css'
 import SideNav from './components/SideNav'
 import AppHeader from './components/AppHeader'
 import { ProSidebarProvider } from 'react-pro-sidebar'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './router/AppRoutes'
 
 function App() {
 
@@ -18,9 +20,12 @@ function App() {
             <CssBaseline />
             <AppHeader />
             <Box sx={styles.container}>
-              <SideNav />
-              <Box component={'main'} sx={styles.main}>
-              </Box>
+              <BrowserRouter>              
+                <SideNav />
+                <Box component={'main'} sx={styles.main}>
+                    <AppRoutes />
+                </Box>
+              </BrowserRouter>
             </Box>
             </ProSidebarProvider>
           </ThemeProvider>
